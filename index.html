@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is a simple webpage with a calculator">
+    	<meta name="keywords" content="calculator, javascript">
+
+		<title>A simple buggy calculator</title>
+		<!-- viewport-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- external fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"> 
+		<!-- external CSS styles -->
+		<link rel="stylesheet" href="assets/css/reset.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<div id="rulesAndBoard" class="cf">
+			<div class="display2-in-1">
+				<h1>Urban planning game</h1>
+				<p>Build and improve your county. How large can it get?</p>
+				<h3>Rules</h3>
+				<p>Turn based game where each turn has two actions</p>
+				<ol>
+					<li>Throw a die</li>
+					<li>Pick a building type to build</li>
+					<li>Pick a place to build the block of buildings</li>
+				</ol>
+				<p>
+					Once step two is done, the corresponding row of the <em>Contruction Board</em> will
+					grow up to a maximum of six blocks.
+					This determines the size of the block to be built in the County on this turn.
+				</p>
+				<p>
+					The block of buildings to be constructed should all form a contiguous line and 
+					lie in the row or column determined by the die.
+				</p>
+				<h6>Observations</h6>
+				<p>
+					Contiguous plots of land are tiles that share an edge.
+					In this way, we can see that a plot of land in the county can have at most four neighbors.
+				</p>
+				<p>
+					You cannot place a block with more than six buildings.
+				</p>
+				<p>
+					All buildings <span class="building" type="I">I</span> should be build in continuous plots of land.
+				</p>
+				<p>
+					You cannot build over polts of land that are already developped, unless you are building <span class="building" type="I">I</span>.
+				</p>
+				<h6>End of game</h6>
+				<p>
+					The game ends when you select a building that cannot be build because there is no space in the County for the corresponding block
+				</p>
+				<ul>
+					<li>For each <span class="building" type="H"></span>, get -1 if adjacent to 
+						<span class="building" type="I"></span> or <span class="building" type="F"></span></li>
+					<li>For each <span class="building" type="C"></span>, get +1 if adjacent to
+						<span class="building" type="H"></span></li>
+					<li>For each <span class="building" type="F">F</span>, get +3 if adjacent to
+						<span class="building" type="I">I</span> and <span class="building" type="C">C</span></li>
+					<li>For each <span class="building" type="E">E</span>, get +6 if adjacent to
+						<span class="building" type="H">H</span>, <span class="building" type="C">C</span> and <span class="building" type="F">F</span></li>
+					<li>For each <span class="building" type="P">P</span> in the largest connected component of plots of 
+						type <span class="building" type="P">P</span>, get +1</li>
+					<li>For each row or column that is completely developed, get +1</li>
+					<li>For each row or column that is completely developed with all six distinct types of buildings
+						get additionally +2.
+					</li>
+				</ul>
+			</div>
+			<div class="display2-in-1">
+				<div class="buttonContainer cf" if="dice"><span id="rollDie">Roll</span><span id="die"></span></div>
+				<div class="buttonContainer cf" id="countyBoard">
+					<div class="plot" id="a1"></div>
+					<div class="plot" id="a2"></div>
+					<div class="plot" id="a3"></div>
+					<div class="plot" id="a4"></div>
+					<div class="plot" id="a5"></div>
+					<div class="plot" id="a6"></div>
+					<div class="plot" id="b1"></div>
+					<div class="plot" id="b2"></div>
+					<div class="plot" id="b3"></div>
+					<div class="plot" id="b4"></div>
+					<div class="plot" id="b5"></div>
+					<div class="plot" id="b6"></div>
+					<div class="plot" id="c1"></div>
+					<div class="plot" id="c2"></div>
+					<div class="plot" id="c3"></div>
+					<div class="plot" id="c4"></div>
+					<div class="plot" id="c5"></div>
+					<div class="plot" id="c6"></div>
+					<div class="plot" id="d1"></div>
+					<div class="plot" id="d2"></div>
+					<div class="plot" id="d3"></div>
+					<div class="plot" id="d4"></div>
+					<div class="plot" id="d5"></div>
+					<div class="plot" id="d6"></div>
+					<div class="plot" id="e1"></div>
+					<div class="plot" id="e2"></div>
+					<div class="plot" id="e3"></div>
+					<div class="plot" id="e4"></div>
+					<div class="plot" id="e5"></div>
+					<div class="plot" id="e6"></div>
+					<div class="plot" id="f1"></div>
+					<div class="plot" id="f2"></div>
+					<div class="plot" id="f3"></div>
+					<div class="plot" id="f4"></div>
+					<div class="plot" id="f5"></div>
+					<div class="plot" id="f6"></div>
+				</div>
+				<div id="contructionBoard" class="buttonContainer cf">
+
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="assets/js/main.js"></script>
+	</body>
+</html>

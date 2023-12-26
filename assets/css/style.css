@@ -1,0 +1,86 @@
+/*
+Index
+ - Box Model Hack
+ - Clear fix hack
+ - Base styles
+  - html and body styles
+  - h1, h3, h6
+ - Layout
+ - Additional styles
+ */
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+
+.cf:before,
+.cf:after {
+content: "";
+display: table;
+}
+.cf:after {
+clear: both;
+}
+.cf {
+clear: both;
+*zoom: 1;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-size: 4.5rem;
+}
+
+
+h1 {
+  font-size: 80px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+
+.class1-in-2 {
+  width: 50%;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+
+.building{
+  font-family: monospace;
+}
